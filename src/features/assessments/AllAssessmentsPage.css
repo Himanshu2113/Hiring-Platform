@@ -1,0 +1,77 @@
+.all-assessments-container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.assessments-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+  .assessments-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .assessments-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.assessment-grid-item {
+  display: flex;
+}
+
+.assessment-card-link {
+  text-decoration: none;
+  width: 100%;
+  display: flex;
+}
+
+.assessment-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease-out;
+  width: 100%;
+}
+
+.assessment-card:hover {
+  transform: translateY(-5px);
+  background-color: var(--surface-secondary);
+  box-shadow: var(--shadow-lg);
+}
+
+.assessment-card h3 {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+
+.assessment-card h3.job-id {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.assessment-card p {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.assessment-card span {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-weight: 600;
+  color: var(--primary-accent);
+}

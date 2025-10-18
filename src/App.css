@@ -1,0 +1,322 @@
+
+
+:root {
+ 
+  --background-primary: #111827;
+  --surface-primary: #1F2937;
+  --surface-secondary: #374151;
+  --border-color: #4B5563;
+  --primary-accent: #6366F1;
+  --primary-accent-hover: #4F46E5;
+  --text-primary: #F9FAFB;
+  --text-secondary: #D1D5DB;
+  --shadow-color: rgba(0, 0, 0, 0.2);
+  --danger-color: #EF4444;
+  --status-active: #22C55E;
+  --status-archived: #F97316;
+  --text-accent: var(--primary-accent);
+}
+
+.light-mode {
+ 
+  --background-primary: #FDFCFB;
+  --surface-primary: #F6F3EF;
+  --surface-secondary: #EDE8E1;
+  --border-color: #E5E7EB;
+  --text-primary: #212529;
+  --text-secondary: #6C757D;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --status-active: #198754;
+  --primary-accent: #BF9B7A;
+  --primary-accent-hover: #a17c5a;
+}
+
+
+:root {
+  --shadow-sm: 0 1px 2px 0 var(--shadow-color);
+  --shadow-md: 0 4px 6px -1px var(--shadow-color), 0 2px 4px -2px var(--shadow-color);
+  --shadow-lg: 0 10px 15px -3px var(--shadow-color), 0 4px 6px -4px var(--shadow-color);
+  --border-radius: 0.5rem;
+}
+
+
+
+body {
+  background-color: var(--background-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+
+
+
+nav {
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: var(--surface-primary);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid var(--border-color);
+
+  position: sticky; 
+  top: 0;
+  z-index: 1000;
+  
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-right: auto; 
+  transition: color 0.3s ease;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem; 
+  position: relative;
+  overflow: hidden;
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-secondary);
+}
+
+
+nav a.active {
+  color: var(--primary-accent);
+  background-color: color-mix(in srgb, var(--primary-accent) 15%, transparent);
+}
+
+
+nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-accent);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+main {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.home-link {
+    color: inherit;
+    text-decoration: none;  
+}
+
+
+
+nav {
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+  padding: 0.75rem 2rem;
+  background-color: var(--surface-primary);
+  backdrop-filter: blur(12px) saturate(150%);
+  -webkit-backdrop-filter: blur(12px) saturate(150%);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.nav-left, .nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-right: 1.5rem; 
+}
+
+nav a {
+  display: flex; 
+  align-items: center;
+  gap: 0.5rem; 
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  transition: color 0.3s ease, background-color 0.3s ease;
+}
+
+nav a:hover {
+  color: var(--text-primary);
+  background-color: var(--surface-secondary);
+}
+
+nav a.active {
+  color: var(--primary-accent);
+  background-color: color-mix(in srgb, var(--primary-accent) 15%, transparent);
+}
+
+
+.profile-section {
+  position: relative;
+}
+
+.profile-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--primary-accent);
+  color: white;
+  border: 2px solid var(--surface-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.profile-button:hover {
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--primary-accent) 30%, transparent);
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  width: 220px;
+  background-color: var(--surface-primary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 1100;
+  overflow: hidden;
+  animation: dropdown-fade-in 0.2s ease-out;
+}
+
+@keyframes dropdown-fade-in {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.dropdown-header {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+.dropdown-header strong {
+  color: var(--text-primary);
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  text-decoration: none;
+  color: var(--text-secondary);
+  background: none;
+  border: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+.dropdown-item:hover {
+  background-color: var(--surface-secondary);
+  color: var(--text-primary);
+}
+
+.logout-item {
+  color: var(--danger-color);
+}
+.logout-item:hover {
+  background-color: color-mix(in srgb, var(--danger-color) 15%, transparent);
+  color: var(--danger-color);
+}
+
+
+
+.login-nav-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--primary-accent);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: var(--border-radius);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.login-nav-button:hover {
+  background-color: var(--primary-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+
+.nav-action-btn {
+  background-color: var(--surface-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.nav-action-btn:hover {
+  border-color: var(--primary-accent);
+  color: var(--primary-accent);
+}
+
+.nav-action-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.nav-action-btn.refreshing svg {
+  animation: spin 0.5s linear infinite;
+}
