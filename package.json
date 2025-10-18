@@ -1,7 +1,7 @@
 {
   "name": "frontend",
   "version": "0.1.0",
-  "homepage": "https://haringhr.vercel.app/",
+  "homepage": "https://hiring-platform-lime.vercel.app/",
   "private": true,
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
